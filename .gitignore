@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.env
+
+# Docker
+.dockerignore
+.DS_Store
+
+# Docker Compose
+docker-compose.yml
+docker-compose.override.yml

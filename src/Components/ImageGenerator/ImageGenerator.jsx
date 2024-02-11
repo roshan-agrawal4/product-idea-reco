@@ -12,7 +12,7 @@ const ImageGenerator = () => {
             return 0;
         }
         const response = await fetch(
-            "https://api.openai.com/",
+            "https://api.openai.com/v1/images/generations",
             {
                 method:"POST",
                 headers:{
@@ -21,20 +21,21 @@ const ImageGenerator = () => {
                     "User-Agent":"Chrome",
                 },
                 body:JSON.stringify({
-                    prompt:'${inputRef.current.value}',
+                    prompt:`${inputRef.current.value}`,
                     n:1, 
                     size: "512x512"
                 }),
             }
         );
         let data = await response.json();
-        console.log(data);
+        let data_array=data.data;
+        setImage_url(data_array[0].url);
     }
     return (
         <div className="ai-image-generator">
         <div className="header">Product Idea <span>generator</span></div>
         <div className="img-loading">
-            <div className="image"><img src={image_url==="/"?default_image:image_url}/></div>
+            <div className="image"><img src={image_url==="/"?default_image:image_url} alt=""/></div>
         </div>
         <div className="search-box">
             <input type="text" ref={inputRef} className='search-input' placeholder='Write your Product idea'/>

@@ -34,7 +34,7 @@
     height: 95px;
     justify-content: space-around;
     align-items: center;
-    border-radius: 50px;
+   
     background: #1f3540;
 }
 
@@ -60,6 +60,7 @@
     height: 85px;
     justify-content: center;
     align-items: center;
-    border-radius: 50px;
+   
     background: #de1889;
+    cursor: grab;
 }
